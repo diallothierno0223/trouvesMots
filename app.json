@@ -1,0 +1,12 @@
+{
+  "name": "TrouveMot",
+  "displayName": "TrouveMot",
+  "expo": {
+    "name": "TrouveMot",
+    "slug": "TrouveMot",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
