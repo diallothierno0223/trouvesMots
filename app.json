@@ -1,12 +1,18 @@
 {
   "name": "TrouveMot",
-  "displayName": "TrouveMot",
+  "displayName": "Trouves Mots",
   "expo": {
     "name": "TrouveMot",
     "slug": "TrouveMot",
+    "icon" : "helper/1.png",
     "version": "1.0.0",
     "assetBundlePatterns": [
       "**/*"
-    ]
+    ],
+    "description": "trouve mots permet de trouver des mot",
+    "android":{
+      "package":"com.thierno.TrouveMot",
+      "versionCode":1
+    }
   }
 }
