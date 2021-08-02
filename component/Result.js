@@ -1,7 +1,7 @@
 import React from 'react'
 import { View, Text, ActivityIndicator, StyleSheet, FlatList } from 'react-native'
 import { Permutation }  from '../js-combinatorics/combinatorics.js'
-import data from '../helper/data'
+import DATA from '../helper/data'
 
 function ResultItem(props){
     return(
@@ -24,25 +24,23 @@ export default class Result extends React.Component {
         this.result = []
     }
 
-    rempli(){
-        console.log("debut permutation", 0)
-        this.it = new Permutation(this.props.route.params.text, parseInt(this.props.route.params.taille))
-        console.log("fin permutation")
-        console.log("debut verifie")
-        for (const elem of this.it) {
-            this.data.push(elem.join(''))
-        }
-        console.log("fin verifie")
-        console.log("debut add")
+    search(donnee){
         this.data.forEach((element) => {
-            if(data.indexOf(element) != -1 ){
+            if(donnee.includes(element)){
                 this.result.push(element)
             }
         })
-        this.result = [...new Set(this.result)]
-        console.log("fin add")
+    }
 
+    rempli(){
+        this.it = new Permutation(this.props.route.params.text, parseInt(this.props.route.params.taille))
+        for (const elem of this.it) {
+            this.data.push(elem.join(''))
+        }
+        this.search(DATA[this.props.route.params.taille])
         
+        this.result = [...new Set(this.result)]
+
     }
 
     lance(){

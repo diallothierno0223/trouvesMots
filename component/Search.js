@@ -25,20 +25,14 @@ export default class Search extends React.Component {
     }
 
     setLettre(text){
-        let exception = ['*','/','_','"',"'",'-',')','(',' ','+','.','0','1','2','3','4','5','6','7','8','9']
-        exception.forEach((lettre)=>{
-            text = text.toLowerCase().replace(lettre, '')
-        })
+        text = text.toLowerCase().replace(/[^a-z]/g, '')
         this.setState({
             lettre : text
         })
     }
 
     setTailleMot(text){
-        let exception = ['*','/','-',' ','+','.','a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
-        exception.forEach((lettre)=>{
-            text = text.toLowerCase().replace(lettre, '')
-        })
+        text = text.toLowerCase().replace(/[^0-9]/g, '')
         this.setState({
             tailleMot : text,
         })
@@ -46,8 +40,7 @@ export default class Search extends React.Component {
 
     okay(){
         if(this.state.lettre.length > 0 && this.state.tailleMot.length > 0 ){
-            // console.log("premiere condition",this.state.lettre.length)
-            if(this.state.lettre.length <= 8 && this.state.lettre.length >= parseInt(this.state.tailleMot) && parseInt(this.state.tailleMot) > 0){
+            if(this.state.lettre.length <= 9 && this.state.lettre.length >= parseInt(this.state.tailleMot) && parseInt(this.state.tailleMot) > 0){
                 return true
             }
         }else{
